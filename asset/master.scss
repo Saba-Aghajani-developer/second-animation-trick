@@ -1,0 +1,256 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+// cup of coffe 
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &:first-of-type {
+        align-items: end;
+        margin-bottom: -50px;
+    }
+
+    &:last-of-type {
+        align-items: start;
+    }
+
+    .cup {
+        width: 400px;
+        height: 280px;
+        background-image: linear-gradient(137deg, #fff 50%, #F3F3F3 50%);
+        border-radius: 0 0 250px 250px;
+        position: relative;
+        z-index: 10;
+
+        &::before {
+            content: '';
+            width: 100px;
+            height: 80px;
+            border: 25px solid #F3F3F3;
+            border-radius: 0 100px 100px 0;
+            position: absolute;
+            top: 0;
+            right: -110px;
+        }
+
+        .Steam {
+            width: 90px;
+            height: 90px;
+            background-color: #ffffff88;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:nth-of-type(1) {
+                animation: steam-anime1 5s infinite;
+            }
+
+            &:nth-of-type(2) {
+                animation: steam-anime2 5s infinite;
+            }
+
+            &:nth-of-type(3) {
+                animation: steam-anime3 5s infinite;
+            }
+
+            &:nth-of-type(4) {
+                animation: steam-anime4 5s infinite;
+            }
+        }
+    }
+
+    .saucer {
+        width: 450px;
+        height: 70px;
+        background-color: #F3F3F3;
+        border-radius: 0 0 100px 100px;
+    }
+}
+
+@keyframes steam-anime1 {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0);
+    }
+
+    15% {
+        transform: translateX(-30%) translateY(-100px) scale(1);
+
+    }
+
+    25% {
+        transform: translateX(-10%) translateY(-200px) scale(1.2);
+    }
+
+    30% {
+        transform: translateX(-10%) translateY(-200px) scale(1);
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(-10%) translateY(-200px) scale(1);
+        visibility: hidden;
+
+
+    }
+}
+
+@keyframes steam-anime2 {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0);
+    }
+
+    25% {
+        transform: translateX(-70%) translateY(-100px) scale(1);
+
+    }
+
+    40% {
+        transform: translateX(-70%) translateY(-100px) scale(1);
+
+    }
+
+    50% {
+        transform: translateX(-90%) translateY(-200px) scale(1.2);
+
+    }
+
+    50% {
+        transform: translateX(-90%) translateY(-200px) scale(1);
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(-90%) translateY(-200px) scale(1);
+        visibility: hidden;
+
+    }
+}
+
+@keyframes steam-anime3 {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0);
+    }
+
+    50% {
+        transform: translateX(-30%) translateY(-100px) scale(1);
+    }
+
+    65% {
+        transform: translateX(-30%) translateY(-100px) scale(1);
+    }
+
+    75% {
+        transform: translateX(-10%) translateY(-200px) scale(1.2);
+
+    }
+
+    80% {
+        transform: translateX(-10%) translateY(-200px) scale(1);
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(-10%) translateY(-200px) scale(1);
+        visibility: hidden;
+
+
+    }
+}
+
+@keyframes steam-anime4 {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0);
+    }
+
+    75% {
+        transform: translateX(-70%) translateY(-100px) scale(1);
+
+    }
+
+    90% {
+        transform: translateX(-90%) translateY(-200px) scale(1);
+    }
+
+    100% {
+        transform: translateX(-90%) translateY(-200px) scale(1);
+        visibility: hidden;
+
+    }
+}
+
+// h1 
+.text {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        position: relative;
+        width: 0;
+        height: 100px;
+        overflow: hidden;
+        animation: anime 5s steps(22) infinite alternate;
+
+        &::before {
+            content: '';
+            width: 2px;
+            height: 50px;
+            background-color: #333;
+            position: absolute;
+            top: 45%;
+            right: 0;
+            animation: opacity .2s infinite;
+        }
+
+        h1 {
+            width: 700px;
+            font-size: 50px;
+            color: #333;
+            font-family: 'Share Tech Mono', monospace;
+            text-transform: uppercase;
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    .child {
+        width: 600px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: transparent;
+    }
+}
+
+@keyframes anime {
+    to {
+        width: 600px;
+    }
+}
+
+@keyframes opacity {
+    to {
+        opacity: 0;
+    }
+}
